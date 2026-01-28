@@ -261,7 +261,8 @@ The application uses a centralized error handling system:
    "msg":"Email or password is wrong",
    "timeStamp":1769560850763,
    "statusCode":400,
-   "body":{"email":"user@example.com","password":"password12345"},"Id":"e1f43461-bd11-4e26-ace2-932415a52b41"
+   "body":{"email":"user@example.com","password":"password12345"},
+   "Id":"e1f43461-bd11-4e26-ace2-932415a52b41"
    }
    ```
 
