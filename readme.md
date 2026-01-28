@@ -18,12 +18,11 @@ This is a Simple MVC backend application built with **Express.js** that implemen
 
 1. [Project Structure](#project-structure)
 2. [Technologies & Dependencies](#technologies--dependencies)
-3. [Installation & Setup](#installation--setup)
-4. [API Endpoints](#api-endpoints)
-5. [Architecture Overview](#architecture-overview)
-6. [Key Components](#key-components)
-7. [Error Handling](#error-handling)
-8. [Running the Application](#running-the-application)
+3. [API Endpoints](#api-endpoints)
+4. [Architecture Overview](#architecture-overview)
+5. [Key Components](#key-components)
+6. [Error Handling](#error-handling)
+7. [Running the Application](#running-the-application)
 
 ---
 
