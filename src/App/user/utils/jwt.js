@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
-const ACCESS_SECRET  = "sdfg98df11$nsd";
-const REFRESH_SECRET = "asdf982asd&#+5";
+const ACCESS_SECRET  = process.env.ACCESS_SECRET;
+const REFRESH_SECRET = process.env.REFRESH_SECRET;
 
 const createAccessToken = (email) => {
     const token = jwt.sign({email}, ACCESS_SECRET,{expiresIn:'1h'})

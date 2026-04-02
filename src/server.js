@@ -1,6 +1,7 @@
 const express = require('express');
 const errorHandler = require('./Common/Error/errorHandler');
 const correlationId = require('./Common/CorrelationId/correlationId')
+require('dotenv').config();
 const app = express();
 app.use(express.json());
 const userRoute = require('./App/user/routes/user.route');

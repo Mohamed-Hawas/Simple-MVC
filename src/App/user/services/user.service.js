@@ -1,5 +1,6 @@
 const { UserAlreadyExistsError, EmailOrPasswordIsWrong, InvalidOrExpiredToken} = require('../error');
 const userModel = require('../models/user.model');
+const repo = require('../repositories/user.repository');
 const comparePassword = require('../utils/hash').comparePassword;
 
 const {
@@ -10,13 +11,13 @@ const {
 } = require('../utils/jwt');
 
 const register = async (email, password) =>{
-    const user = userModel.findByEmail(email);
+    const user = await repo.findByEmail(email);
     if (user) throw UserAlreadyExistsError;
-    userModel.pushUser(email, password);
+    userModel.addUser(email, password);
 }
 
 const login = async (email, password) => {
-    const user = userModel.findByEmail(email);
+    const user =await repo.findByEmail(email);
     if (!user) throw EmailOrPasswordIsWrong;
 
     const isMatch = await comparePassword(password, user.password);
@@ -36,9 +37,9 @@ const renewAccessToken = ( refreshToken ) => {
     }
 }
 
-const getUserProfileByToken = (token) => {
+const getUserProfileByToken = async (token) => {
     const decoded = verifyAccessToken(token);
-    const user = userModel.findByEmail(decoded.email);
+    const user = await repo.findByEmail(decoded.email);
     if (!user) throw InvalidOrExpiredToken;
     return user;
 }

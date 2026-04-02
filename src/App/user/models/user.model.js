@@ -1,15 +1,9 @@
 const hashPassword = require('../utils/hash').hashPassword;
-const users = [];
+const repo= require('../repositories/user.repository')
 
-const pushUser = async (email, password) => {
+const addUser = async (email, password) => {
     const hashedPassword = await hashPassword(password); 
-    const user = {email, password: hashedPassword};
-    users.push(user);
+    await repo.createUser(email, hashedPassword);
 }
 
-const findByEmail = (email) => {
-    const user = users.find( u => u.email === email );
-    return user || null;
-}
-
-module.exports = {pushUser, findByEmail};
+module.exports = {addUser};
